@@ -3,7 +3,7 @@ import Home from '../pages/home.vue'
 import About from '../pages/about.vue'
 import Login from '../pages/login.vue'
 import { getToken } from '../utils/auth'
-import NProgress from 'NProgress'
+import NProgress from 'nprogress'
 import "nprogress/nprogress.css"
 
 const routes = [
