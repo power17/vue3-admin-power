@@ -13,8 +13,10 @@ jobs:
       uses: actions/setup-node@v3.6.0
       with: 
         node-version: '17.x'
+    - name: install pnpm
+      run: npm install pnpm -g    
     - name: install dep
-      run: npm install
+      run: pnpm install
     - name: build app
       run: npm run build
     - name: scp files to linux
