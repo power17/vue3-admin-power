@@ -18,7 +18,7 @@ jobs:
     - name: install dep
       run: pnpm install
     - name: build app
-      run: npm run build
+      run: pnpm run build
     - name: scp files to linux
       uses: appleboy/scp-action@v0.0.1
       with: 
