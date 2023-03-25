@@ -20,12 +20,12 @@ jobs:
     - name: scp files to linux
       uses: appleboy/scp-action@v0.0.1
       with: 
-        host: ""
-        username: ""
-        passworld: ""
-        port: ""
-        source: ""
-        target: ""
+        host: ${{secrets.REMOTE_HOST}}
+        username: ${{secrets.REMOTE_USERNAME}}
+        passworld: ${{secrets.REMOTE_PASSWORLD}}
+        port: ${{secrets.REMOTE_PORT}}
+        source: "dist/"
+        target: ${{secrets.REMOTE_TARGET}}
         
       
       
