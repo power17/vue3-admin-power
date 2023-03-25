@@ -1,0 +1,32 @@
+name: deploy
+on:
+  push:
+    branches:
+    - main
+    - release/*
+jobs:
+  my_job:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v2.7.0
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v3.6.0
+      with: 
+        node-version: '17.x'
+    - name: install dep
+      run: pnpm install
+    - name: build app
+      run: npm run build
+    - name: scp files to linux
+      uses: appleboy/scp-action@v0.0.1
+      with: 
+        host: ""
+        username: ""
+        passworld: ""
+        port: ""
+        source: ""
+        target: ""
+        
+      
+      
+    
