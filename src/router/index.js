@@ -19,10 +19,10 @@ const routes = [
 const router = createRouter({ history: createWebHistory(), routes })
 
 
-
-
 router.beforeEach((to, from, next) => {
+
   NProgress.start()
+  
   let token = getToken()
   const { fullPath } = to
   if (fullPath === '/login') {
