@@ -6,7 +6,7 @@ on:
     - release/*
 jobs:
   my_job:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2.7.0
     - name: Setup Node.js environment
