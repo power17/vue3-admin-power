@@ -12,7 +12,7 @@ jobs:
     - name: Setup Node.js environment
       uses: actions/setup-node@v3.6.0
       with: 
-        node-version: '17.x'
+        node-version: '18.x'
     - name: install pnpm
       run: npm install pnpm@7.5.0 -g    
     - name: install dep
