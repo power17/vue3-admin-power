@@ -1,7 +1,8 @@
 import { createWebHistory, createRouter } from 'vue-router'
-import Home from '../pages/home.vue'
-import About from '../pages/about.vue'
-import Login from '../pages/login.vue'
+import Home from '../pages/p-home.vue'
+import About from '../pages/p-about.vue'
+import Login from '../pages/p-login.vue'
+import Account from '../pages/p-account.vue'
 import { getToken } from '../utils/auth'
 import NProgress from 'nprogress'
 import "nprogress/nprogress.css"
@@ -14,6 +15,7 @@ const routes = [
     children: [{ path: 'about', name: 'About', component: About }],
   },
   { path: '/login', name: 'Login', component: Login },
+  { path: '/steam', name: 'Account', component: Account },
 ]
 
 const router = createRouter({ history: createWebHistory(), routes })

@@ -2,10 +2,11 @@
 import axios from 'axios'
 import store from '../store'
 import { getToken } from '../utils/auth'
-import { Message } from 'element3'
+import { ElMessage } from 'element-plus'
 
+// console.log(Process.env)
 const service = axios.create({
-  baseURL: "/", // url = base url + request url
+  baseURL: process.env.BASE_URL, // url = base url + request url
   timeout: 5000, // request timeout
 })
 
@@ -30,7 +31,7 @@ service.interceptors.response.use(
     const res = response.data
     // Invalid token
     if (res.code === 401) {
-      Message({
+      ElMessage({
         type: 'warning',
         message: "登录失效，请重新登录"
       })
@@ -38,15 +39,22 @@ service.interceptors.response.use(
       return Promise.reject(new Error(res.data || 'Error'))
 
     }
-    if (res.code !== 20000) {
-      console.log('接口信息报错', res.message)
+    if (res.code !== 200) {
+      ElMessage({
+        type: 'warning',
+        message: '接口信息报错' + res.message
+      })
       return Promise.reject(new Error(res.message || 'Error'))
     } else {
       return res
     }
   },
   error => {
-    console.log('接口信息报错' + error)
+    ElMessage({
+      type: 'warning',
+      message: '接口信息报错' + error
+    })
+    
     return Promise.reject(error)
   },
 )

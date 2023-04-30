@@ -2,7 +2,6 @@ import { watchEffect, ref } from "vue"
 
 export function useStorage(name, value = "") {
   const localValue = localStorage.getItem(name)
-  console.log(localValue)
   const data = ref(localValue ? JSON.parse(localValue) : "")
   if (value) {
     data.value = value

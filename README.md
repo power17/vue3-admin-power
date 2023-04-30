@@ -14,7 +14,7 @@ $ npm install
 
 # Run in local
 ```bash
-$ npm run dev
+$ pnpm run dev
 ```
 
 # Default values
