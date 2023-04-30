@@ -16,9 +16,7 @@ jobs:
         with:
           node-version: '18.x'
       - name: install pnpm
-        run: npm install pnpm@7.5.0 -g 
-      - name: install pnpm
-        run: pnpm -v  
+        run: npm install pnpm
       - name: install dep
         run: pnpm install
       - name: build app
