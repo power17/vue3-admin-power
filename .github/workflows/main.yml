@@ -34,3 +34,4 @@ jobs:
           REMOTE_USER: "root"
           # /root/nginx/html
           TARGET: ${{ secrets.TARGET }}
+
