@@ -8,12 +8,14 @@ export default defineConfig(({command}) => {
   
   const base = command === 'build'? '/steam' : ''
   const baseUrl= command === 'build'? 'http://43.138.225.204:8080':'http://localhost:8080'
-  console.log(base, command)
   return {
     server: {
       // proxy: {
       //   '/account': 'http://localhost:8080'
       // }
+    },
+    build: {
+      outDir: 'steam'
     },
     define: {
       'process.env': {
