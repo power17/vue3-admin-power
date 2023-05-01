@@ -4,7 +4,6 @@ import store from '../store'
 import { getToken } from '../utils/auth'
 import { ElMessage } from 'element-plus'
 
-// console.log(Process.env)
 const service = axios.create({
   baseURL: process.env.BASE_URL, // url = base url + request url
   timeout: 5000, // request timeout
@@ -42,7 +41,7 @@ service.interceptors.response.use(
     if (res.code !== 200) {
       ElMessage({
         type: 'warning',
-        message: '接口信息报错' + res.message
+        message: '后台接口信息报错' + res.message
       })
       return Promise.reject(new Error(res.message || 'Error'))
     } else {
@@ -52,7 +51,7 @@ service.interceptors.response.use(
   error => {
     ElMessage({
       type: 'warning',
-      message: '接口信息报错' + error
+      message: 'http连接报错' + error
     })
     
     return Promise.reject(error)

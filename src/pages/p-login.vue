@@ -34,7 +34,7 @@ const onSubmit = async () => {
   loading.value = true
   try {
     const res = await login(form)
-    console.log(res);
+    console.log(res)
     router.replace('/')
   } catch (error) {
     ElMessage({

@@ -1,4 +1,4 @@
-import { createWebHistory, createRouter } from 'vue-router'
+import { createWebHistory,createWebHashHistory, createRouter } from 'vue-router'
 import Home from '../pages/p-home.vue'
 import About from '../pages/p-about.vue'
 import Login from '../pages/p-login.vue'
@@ -15,27 +15,29 @@ const routes = [
     children: [{ path: 'about', name: 'About', component: About }],
   },
   { path: '/login', name: 'Login', component: Login },
-  { path: '/steam', name: 'Account', component: Account },
+  { path: '/account', name: 'Account', component: Account },
 ]
 
-const router = createRouter({ history: createWebHistory(), routes })
+const router = createRouter({ 
+  history: createWebHashHistory('/steam/'),
+   routes,
+  })
 
 
 router.beforeEach((to, from, next) => {
-
   NProgress.start()
-  
-  let token = getToken()
-  const { fullPath } = to
-  if (fullPath === '/login') {
-    next()
-    retrun
-  }
-  if (!token) {
-    next('/login')
-  }else{
-    next()
-  }
+  next()
+  // let token = getToken()
+  // const { fullPath } = to
+  // if (fullPath === '/login' || fullPath === '/account') {
+  //   next()
+  //   retrun
+  // }
+  // if (!token) {
+  //   next('/login')
+  // }else{
+  //   next()
+  // }
 })
 router.afterEach(() => { 
   NProgress.done()
